@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="ware_img_width">80dp</dimen>
+    <dimen name="ware_img_height">80dp</dimen>
+
+
+    <dimen name="smallButtonHeight">24.0dip</dimen>
+    <dimen name="smallButtonWidth">32.0dip</dimen>
+    <dimen name="smallPadding">6.0dip</dimen>
+    <dimen name="smallButtonTextSize">12.0dip</dimen>
+    <dimen name="buttonCornerSize">2.0dip</dimen>
+</resources>

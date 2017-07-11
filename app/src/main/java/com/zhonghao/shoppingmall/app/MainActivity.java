@@ -13,6 +13,7 @@ import com.zhonghao.shoppingmall.R;
 import com.zhonghao.shoppingmall.base.BaseFragment;
 import com.zhonghao.shoppingmall.community.fragment.CommunityFragment;
 import com.zhonghao.shoppingmall.home.fragment.HomeFragment;
+import com.zhonghao.shoppingmall.home.fragment.SecondFragment;
 import com.zhonghao.shoppingmall.shoppingcart.fragment.ShoppingCartFragment;
 import com.zhonghao.shoppingmall.type.fragment.TypeFragment;
 import com.zhonghao.shoppingmall.user.fragment.UserFragment;
@@ -41,11 +42,8 @@ public class MainActivity extends AppCompatActivity {
     RadioGroup mRgMain;
 
     private List<BaseFragment> mFragments;
-    private TypeFragment mTypeFragment;
     private int position = 0;
-    private BaseFragment mBaseFragment;
-
-
+    private BaseFragment mBaseFragment;//缓存的Fragment或者说是上次显示的Fragment
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,9 +55,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void initFragment() {
         mFragments = new ArrayList<>();
-        mTypeFragment = new TypeFragment();
+
         mFragments.add(new HomeFragment());
-        mFragments.add(mTypeFragment);
+        mFragments.add(new TypeFragment());
         mFragments.add(new CommunityFragment());
         mFragments.add(new ShoppingCartFragment());
         mFragments.add(new UserFragment());
@@ -69,12 +67,12 @@ public class MainActivity extends AppCompatActivity {
         mRgMain.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                switch (checkedId){
+                switch (checkedId) {
                     case R.id.rb_home:
-                        position=0;
+                        position = 0;
                         break;
                     case R.id.rb_type:
-                        position= 1;
+                        position = 1;
                         break;
                     case R.id.rb_community:
                         position = 2;
@@ -87,7 +85,9 @@ public class MainActivity extends AppCompatActivity {
                         break;
                 }
                 BaseFragment curFragemnt = getFragment(position);
-                switchFragment(mBaseFragment,curFragemnt);
+                //第一个参数：上次显示的fragment
+                //第二个参数：当前正要显示的fragment
+                switchFragment(mBaseFragment, curFragemnt);
             }
         });
 
@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private BaseFragment getFragment(int position) {
-        if (mFragments!=null&&mFragments.size()>0){
+        if (mFragments != null && mFragments.size() > 0) {
             BaseFragment curFragment = mFragments.get(position);
             return curFragment;
         }
@@ -103,16 +103,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void switchFragment(Fragment fromFragment, BaseFragment toFragemnt) {
-        if (mBaseFragment!=toFragemnt){
+        if (mBaseFragment != toFragemnt) {
             mBaseFragment = toFragemnt;
-            if (toFragemnt!=null){
+            if (toFragemnt != null) {
                 FragmentTransaction fm = getSupportFragmentManager().beginTransaction();
-                if (!toFragemnt.isAdded()){
-                    if (fromFragment!=null){
+                //判断正要显示的Fragment是否添加
+                if (!toFragemnt.isAdded()) {
+                    if (fromFragment != null) {
+                        //隐藏当前fragment
                         fm.hide(fromFragment);
                     }
-                    fm.add(R.id.frameLayout,toFragemnt).commit();
-                }else{
+                    fm.add(R.id.frameLayout, toFragemnt).commit();
+                } else {
                     //隐藏当前Fragment
                     if (fromFragment != null) {
                         fm.hide(fromFragment);

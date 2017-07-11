@@ -8,7 +8,7 @@
     <application
         android:name=".app.MyAppliction"
         android:allowBackup="true"
-        android:icon="@drawable/logo"
+        android:icon="@drawable/logoend"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -22,6 +22,8 @@
 
         <activity android:name=".home.activity.GoodsInfoActivity"></activity>
         <activity android:name=".shoppingcart.activity.ShoppingCartActivity"/>
+        <activity android:name=".home.activity.SecondHomeActivity"/>
+        <activity android:name=".home.activity.WareDetailActivity"/>
     </application>
 
 </manifest>

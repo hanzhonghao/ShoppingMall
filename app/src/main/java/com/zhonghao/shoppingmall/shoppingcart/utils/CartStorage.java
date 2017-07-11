@@ -8,6 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.zhonghao.shoppingmall.app.MyAppliction;
 import com.zhonghao.shoppingmall.home.bean.GoodsBean;
+import com.zhonghao.shoppingmall.type.bean.Wares;
 import com.zhonghao.shoppingmall.utils.CacheUtils;
 
 import java.util.ArrayList;
@@ -137,5 +138,37 @@ public class CartStorage {
             goodsBeanList.add(goodsBean);
         }
         return goodsBeanList;
+    }
+
+    public void put(Wares wares){
+        GoodsBean goods = convertData(wares);
+        put(goods);
+    }
+
+    private void put(GoodsBean goods) {
+
+        GoodsBean temp =  mSparseArray.get(goods.getId().intValue());
+
+        if(temp !=null){
+            temp.setNumber(temp.getNumber() + 1);
+        }
+        else{
+            temp = goods;
+            temp.setNumber(1);
+            mSparseArray.put(Integer.parseInt(goods.getProduct_id()),goods);
+        }
+
+        mSparseArray.put(goods.getId().intValue(), temp);
+        saveLocal();
+    }
+
+
+    private GoodsBean convertData(Wares wares) {
+        GoodsBean goods = new GoodsBean();
+        goods.setId(wares.getId());
+        goods.setName(wares.getName());
+        goods.setFigure(wares.getImgUrl());
+        goods.setPrice(wares.getPrice());
+        return goods;
     }
 }

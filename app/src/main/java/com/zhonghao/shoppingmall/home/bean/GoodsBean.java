@@ -18,6 +18,12 @@ public class GoodsBean implements Serializable {
     //产品id
     private String product_id;
 
+    private Long id;
+
+    private Float price;
+
+
+
     private int number = 1;
 
     public GoodsBean() {
@@ -81,6 +87,22 @@ public class GoodsBean implements Serializable {
 
     public void setProduct_id(String product_id) {
         this.product_id = product_id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Float getPrice() {
+        return price;
+    }
+
+    public void setPrice(Float price) {
+        this.price = price;
     }
 
     @Override

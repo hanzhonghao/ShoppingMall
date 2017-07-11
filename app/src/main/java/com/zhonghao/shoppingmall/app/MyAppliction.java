@@ -3,6 +3,7 @@ package com.zhonghao.shoppingmall.app;
 import android.app.Application;
 import android.content.Context;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.zhy.http.okhttp.OkHttpUtils;
 
 import java.util.concurrent.TimeUnit;
@@ -16,6 +17,7 @@ public class MyAppliction extends Application {
         super.onCreate();
         this.mContext = this;
         initOkHttpUtils();
+        Fresco.initialize(this);
     }
 
     private void initOkHttpUtils() {

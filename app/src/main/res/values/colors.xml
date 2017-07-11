@@ -7,5 +7,20 @@
     <color name="gray_dark_bg">#ffbababa</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
-    <!-- 白色 -->
+    <color name="bg_color">#f1f1f1</color>
+    <color name="backColor">#2000</color>
+
+    <!-- 淡灰色 -->
+    <color name="gainsboro">#dcdcdc</color>
+
+    <color name="gray">#808080</color>
+    <!-- 灰色 -->
+
+    <color name="crimson">#dc143c</color>
+    <!-- 暗深红色 -->
+
+    <color name="white_color_disable">#7fffffff</color>
+    <color name="red_btn_color_normal">#eb4f38</color>
+    <color name="red_btn_color_pressed">#ffff5454</color>
+    <color name="red_btn_color_disable">#7fff5454</color>
 </resources>

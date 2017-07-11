@@ -298,7 +298,6 @@ public class HomeFragmentAdapter extends RecyclerView.Adapter {
             //秒杀倒计时 -毫秒
             dt =   Integer.valueOf(seckill_info.getEnd_time()) - Integer.valueOf(seckill_info.getStart_time());
 
-
             handler.sendEmptyMessageDelayed(0,1000);
         }
     }

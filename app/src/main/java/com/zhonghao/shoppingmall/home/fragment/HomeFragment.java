@@ -1,5 +1,6 @@
 package com.zhonghao.shoppingmall.home.fragment;
 
+import android.content.Intent;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -11,6 +12,7 @@ import android.widget.Toast;
 import com.alibaba.fastjson.JSON;
 import com.zhonghao.shoppingmall.R;
 import com.zhonghao.shoppingmall.base.BaseFragment;
+import com.zhonghao.shoppingmall.home.activity.SecondHomeActivity;
 import com.zhonghao.shoppingmall.home.adapter.HomeFragmentAdapter;
 import com.zhonghao.shoppingmall.home.bean.ResultBeanData;
 import com.zhonghao.shoppingmall.utils.Constants;
@@ -120,6 +122,15 @@ public class HomeFragment extends BaseFragment {
             public void onClick(View v) {
                 //回到顶部
                 mRvHome.scrollToPosition(0);
+            }
+        });
+
+        //设置长安监听
+        mIbTop.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                startActivity(new Intent(getActivity(),SecondHomeActivity.class));
+                return false;
             }
         });
 

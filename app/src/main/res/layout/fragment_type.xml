@@ -13,7 +13,7 @@
 
         <com.flyco.tablayout.SegmentTabLayout
             android:id="@+id/tl_1"
-            android:layout_width="150dp"
+            android:layout_width="320dp"
             android:layout_height="35dp"
             android:layout_centerInParent="true"
             android:layout_gravity="center_horizontal"
@@ -21,16 +21,8 @@
             tl:tl_bar_color="#ffffff"
             tl:tl_indicator_color="#ff0000"
             tl:tl_indicator_corner_radius="20dp"
-            tl:tl_tab_padding="23dp" />
-
-        <ImageView
-            android:id="@+id/iv_type_search"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/icon_search_white" />
+            tl:tl_tab_padding="23dp"
+            tl:tl_textsize="10sp"/>
 
         <View
             android:layout_width="match_parent"

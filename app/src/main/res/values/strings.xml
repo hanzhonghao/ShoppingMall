@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">小豪商城</string>
+    <string name="token_error">登录失效，请重新登录</string>
 </resources>
